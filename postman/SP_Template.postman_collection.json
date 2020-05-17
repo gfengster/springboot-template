@@ -1,0 +1,410 @@
+{
+	"info": {
+		"_postman_id": "c94606dc-3191-4acb-8996-c2d60445bb5a",
+		"name": "SP_Template",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "localhost:8080/demo/person",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "3df9cc7d-e0cb-4af1-801a-eab0258702b7",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 50ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(50);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/demo/echo",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"demo",
+						"echo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/demo/person/2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0a8e46dd-b853-43e5-a714-927b17c6aaaa",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/demo/person/2",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"demo",
+						"person",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/demo/person",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 2,\n    \"name\": \"ABC-1\",\n    \"age\": 34\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/demo/person",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"demo",
+						"person"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/demo/person",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 1,\n    \"name\": \"ABC-1\",\n    \"age\": 6\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/demo/person",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"demo",
+						"person"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/demo/person",
+			"request": {
+				"method": "OPTIONS",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    {\n        \"id\": 10,\n        \"name\": \"ABC-0\",\n        \"age\": 23\n    },\n    {\n        \"id\": 11,\n        \"name\": \"ABC-1\",\n        \"age\": 6\n    },\n    {\n        \"id\": 12,\n        \"name\": \"ABC-1\",\n        \"age\": 34\n    },\n    {\n        \"id\": 13,\n        \"name\": \"ABC-3\",\n        \"age\": 21\n    }\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/demo/person",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"demo",
+						"person"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/demo/person",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "de1ba258-da23-4aff-a42f-8ff71fe42f54",
+						"exec": [
+							"pm.test(\"Status code is 409\", function () {",
+							"    pm.response.to.have.status(409);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/demo/person",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"demo",
+						"person"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/demo/person",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "3df9cc7d-e0cb-4af1-801a-eab0258702b7",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/demo/person",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"demo",
+						"person"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Calculator Service",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "1cd6e951-e44a-4b32-978a-521de9e4321a",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"body\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.body).to.eql(\"Person [id=100, name=ABC-100, age=60]\");",
+							"});",
+							"pm.test(\"headauthorization\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.headauthorization).to.eql(\"dwddsadsag3332$Â£\\\"DFAS\");",
+							"});",
+							"pm.test(\"query\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.query).to.eql(\"fdafasfa\");",
+							"});",
+							"pm.test(\"userId\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.userId).to.eql(\"43213\");",
+							"});",
+							"",
+							"pm.test(\"Content-Type is present\", function () {",
+							"    pm.response.to.have.header(\"newheader\");",
+							"});",
+							"",
+							"pm.test(\"Cookie is present\", function () {",
+							"    const c = pm.cookies.username;",
+							"    c.be.eql(\"gfeng\");",
+							"});",
+							"pm.test(\"Response time is less than 200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});",
+							"pm.sendRequest(\"https://postman-echo.com/get\", function (err, response) {",
+							"    console.log(response.json());",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/text",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "gregerg erge",
+					"options": {
+						"raw": {
+							"language": "text"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/service/calculate/1/100",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"service",
+						"calculate",
+						"1",
+						"100"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Calculator Service",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "1cd6e951-e44a-4b32-978a-521de9e4321a",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"body\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.body).to.eql(\"Person [id=100, name=ABC-100, age=60]\");",
+							"});",
+							"pm.test(\"headauthorization\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.headauthorization).to.eql(\"dwddsadsag3332$Â£\\\"DFAS\");",
+							"});",
+							"pm.test(\"query\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.query).to.eql(\"fdafasfa\");",
+							"});",
+							"pm.test(\"userId\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.userId).to.eql(\"43213\");",
+							"});",
+							"",
+							"pm.test(\"Content-Type is present\", function () {",
+							"    pm.response.to.have.header(\"newheader\");",
+							"});",
+							"",
+							"pm.test(\"Cookie is present\", function () {",
+							"    const c = pm.cookies.username;",
+							"    c.be.eql(\"gfeng\");",
+							"});",
+							"pm.test(\"Response time is less than 200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});",
+							"pm.sendRequest(\"https://postman-echo.com/get\", function (err, response) {",
+							"    console.log(response.json());",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/text",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "gregerg erge",
+					"options": {
+						"raw": {
+							"language": "text"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/service/calculate/1/100",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"service",
+						"calculate",
+						"1",
+						"100"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
