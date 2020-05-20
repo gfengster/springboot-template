@@ -40,5 +40,24 @@ http://localhost:8080/service/myvalue
 
 
 #Create a keystore
-under resources
+# under resources
 keytool -genkeypair -keyalg RSA -keysize 2048 -storetype PKCS12 -keystore spkeysotre.p12 -validity 365
+
+
+# Usefull keytool command
+# Create jks
+keytool -genkeypair -alias tomcat -keyalg RSA -keysize 2048 -keystore keystore.jks -validity 3650 -storepass password
+# Create p12
+keytool -genkeypair -alias tomcat -keyalg RSA -keysize 2048 -storetype PKCS12 -keystore keystore.p12 -validity 3650 -storepass password
+# List
+keytool -list -v -keystore keystore.jks
+keytool -list -v -storetype pkcs12 -keystore keystore.p12
+# Convert jks to p12
+keytool -importkeystore -srckeystore keystore.jks -destkeystore keystore.p12 -deststoretype pkcs12
+# Import OpenSSL to p12
+keytool -import -alias tomcat -file myCertificate.crt -keystore keystore.p12 -storepass password
+# Export to client
+keytool -export -keystore keystore.jks -alias tomcat -file myCertificate.crt
+# Client import certificate
+keytool -importcert -file myCertificate.crt -alias tomcat -keystore $JDK_HOME/jre/lib/security/cacerts
+
