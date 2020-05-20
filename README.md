@@ -38,3 +38,7 @@ http://localhost:8080/service/calculate/100
 #Get constant value from application.properties net.gfeng.greatest
 http://localhost:8080/service/myvalue
 
+
+#Create a keystore
+under resources
+keytool -genkeypair -keyalg RSA -keysize 2048 -storetype PKCS12 -keystore spkeysotre.p12 -validity 365
