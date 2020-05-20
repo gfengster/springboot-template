@@ -43,6 +43,8 @@ http://localhost:8080/service/myvalue
 # under resources
 keytool -genkeypair -keyalg RSA -keysize 2048 -storetype PKCS12 -keystore spkeysotre.p12 -validity 365
 
+# http redirect to https
+https://localhost:8080/info
 
 # Usefull keytool command
 # Create jks
