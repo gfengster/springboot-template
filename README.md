@@ -38,3 +38,5 @@ http://localhost:8080/service/calculate/100
 #Get constant value from application.properties net.gfeng.greatest
 http://localhost:8080/service/myvalue
 
+# Performance test
+java -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath="./heapdump"  -XX:OnOutOfMemoryError="kill -9 %p" -XX:+CrashOnOutOfMemoryError -XX:+ExitOnOutOfMemoryError -XX:+UseG1GC -XX:+UseStringDeduplication -jar ./target/sptemplate.jar
