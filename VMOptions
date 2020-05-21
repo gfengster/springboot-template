@@ -1,0 +1,12 @@
+http://www.mastertheboss.com/jboss-server/jboss-monitoring/how-to-solve-javalangoutofmemoryerror-unable-to-create-new-native-thread
+https://dzone.com/articles/outofmemoryerror-related-jvm-arguments
+https://dzone.com/articles/usestringdeduplication
+
+-XX:+HeapDumpOnOutOfMemoryError 
+-XX:HeapDumpPath="./heapdump"  
+-XX:OnOutOfMemoryError="kill -9 %p" 
+-XX:+CrashOnOutOfMemoryError 
+-XX:+ExitOnOutOfMemoryError 
+-XX:+UseG1GC 
+-XX:+UseStringDeduplication 
+-Xss256k 
