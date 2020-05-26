@@ -40,3 +40,21 @@ http://localhost:8080/service/myvalue
 
 # Performance test
 java -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath="./heapdump"  -XX:OnOutOfMemoryError="kill -9 %p" -XX:+CrashOnOutOfMemoryError -XX:+ExitOnOutOfMemoryError -XX:+UseG1GC -XX:+UseStringDeduplication -jar ./target/sptemplate.jar
+
+# print jvm env options
+java -XX:+PrintFlagsFinal -version 
+
+# show threads
+ps -p {process} -lfT | wc -l
+
+echo 100000 > /proc/sys/kernel/threads-max
+
+# for 64 bit
+sysctl kernel.pid_max
+sysctl -w kernel.pid_max=4194303 
+
+
+
+
+
+
