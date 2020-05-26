@@ -14,5 +14,5 @@ COPY ./story.txt /opt/sptemplate/
 
 EXPOSE 8080 5005
 
-CMD /opt/sptemplate/sptemplate.jar
+CMD /opt/sptemplate/sptemplate.jar ${MyEnv}
 
