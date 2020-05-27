@@ -1,3 +1,4 @@
+CI has integrated.
 
 mvn clean package
 
