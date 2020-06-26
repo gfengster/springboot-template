@@ -16,11 +16,11 @@ services:
 
   web1:
     container_name: node_1
-#    image: springboot-template_web
+    image: springboot-template_web
     
-    build: 
-      context: .
-      dockerfile: Dockerfile
+#    build: 
+#      context: .
+#      dockerfile: Dockerfile
       
     networks:
         backend_net:
@@ -36,11 +36,11 @@ services:
   
   web2:
     container_name: node_2
-#    image: springboot-template_web
+    image: springboot-template_web
 
-    build: 
-      context: .
-      dockerfile: Dockerfile
+#    build: 
+#      context: .
+#      dockerfile: Dockerfile
      
     networks:
         backend_net:
