@@ -1,4 +1,4 @@
-FROM gfeng/sptemplate:1
+FROM gfeng/sptemplate:latest
 
 LABEL version="1.0"
 LABEL description="Spring-Boot Template"

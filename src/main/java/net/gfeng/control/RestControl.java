@@ -1,5 +1,6 @@
 package net.gfeng.control;
 
+import java.net.InetAddress;
 import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.List;
@@ -40,8 +41,12 @@ public class RestControl {
 	
 	@GetMapping("/echo")
     @ResponseBody
-	public String echo() {
-		return "Hello " + System.getProperty("user.name") + " <br> " + LocalDateTime.now();
+	public String echo() throws Exception {
+		InetAddress ip = InetAddress.getLocalHost();
+		return "Hello " + System.getProperty("user.name") 
+					+ " <br> " + LocalDateTime.now()
+					+ " <br> " + ip.getHostName()
+					+ " <br> " + ip.getHostAddress();
 	}
 	
 	@RequestMapping(path="person/{id}", method=RequestMethod.GET)
