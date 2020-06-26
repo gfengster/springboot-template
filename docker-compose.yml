@@ -1,13 +1,67 @@
 version: "3"
 services:
-  web:
+  gateway:
+    container_name: gateway
+    build:
+      context: .
+      dockerfile: NgixDockerfile
+      
+    networks:
+        frontend_net:
+            ipv4_address: 172.20.0.2
+        backend_net:
+            
+       
+
+  web1:
+    container_name: node_1
+#    image: springboot-template_web
+    
     build: 
       context: .
       dockerfile: Dockerfile
-    ports:
-       - 8080:8080
-       - 5005:5005
+      
+    networks:
+        backend_net:
+            ipv4_address: 172.19.0.10
+      
+#    ports:
+#       - 8080:8080
+#       - 5005:5005
     environment:
       # - JAVA_OPTS=-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=5005
       - JAVA_OPTS=-Xmx4g -Xms4g -Xss256k -server
       - MyEnv=abdnd
+  
+  web2:
+    container_name: node_2
+#    image: springboot-template_web
+
+    build: 
+      context: .
+      dockerfile: Dockerfile
+     
+    networks:
+        backend_net:
+            ipv4_address: 172.19.0.11
+      
+#    ports:
+#       - 8080:8080
+#       - 5005:5005
+    environment:
+      # - JAVA_OPTS=-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=5005
+      - JAVA_OPTS=-Xmx4g -Xms4g -Xss256k -server
+      - MyEnv=abdnd
+       
+networks:
+    backend_net:
+        ipam:
+            driver: default
+            config:
+                - subnet: 172.19.0.0/16
+                
+    frontend_net:
+        ipam:
+            driver: default
+            config:
+                - subnet: 172.20.0.0/16         

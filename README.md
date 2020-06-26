@@ -38,8 +38,36 @@ http://localhost:8080/service/calculate/100
 #Get constant value from application.properties net.gfeng.greatest
 http://localhost:8080/service/myvalue
 
+# Post a block of multiline text, and return the length for each line
+# Use postman
+POST http://localhost:8080/service/calculate
+# In body
+3432
+fsaf  dsg
+fafas
+# Return 
+[
+    {
+        "lineNumber": 1,
+        "length": 4,
+        "text": "3432"
+    },
+    {
+        "lineNumber": 2,
+        "length": 9,
+        "text": "fsaf  dsg"
+    },
+    {
+        "lineNumber": 3,
+        "length": 5,
+        "text": "fafas"
+    }
+]
+
+
 # Performance test
 java -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath="./heapdump"  -XX:OnOutOfMemoryError="kill -9 %p" -XX:+CrashOnOutOfMemoryError -XX:+ExitOnOutOfMemoryError -XX:+UseG1GC -XX:+UseStringDeduplication -jar ./target/sptemplate.jar
+
 
 # print jvm env options
 java -XX:+PrintFlagsFinal -version 

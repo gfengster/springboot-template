@@ -19,7 +19,7 @@ public class PersonService {
 		repo.put(0, new Person(0, "ABC-0", 23));
 		repo.put(1, new Person(1, "ABC-1", 34));
 		repo.put(2, new Person(2, "ABC-2", 64));
-		repo.put(3, new Person(6, "ABC-3", 21));
+		repo.put(3, new Person(3, "ABC-3", 21));
 		repo.put(4, new Person(4, "ABC-4", 23));
 		repo.put(5, new Person(5, "ABC-5", 27));
 		repo.put(6, new Person(6, "ABC-6", 76));
