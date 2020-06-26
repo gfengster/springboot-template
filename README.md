@@ -1,3 +1,4 @@
+CI has integrated.
 
 mvn clean package
 
@@ -77,8 +78,9 @@ ps -p {process} -lfT | wc -l
 
 echo 100000 > /proc/sys/kernel/threads-max
 
-# for 64 bit
+# For 64 bit
 sysctl kernel.pid_max
+
 sysctl -w kernel.pid_max=4194303 
 
 
