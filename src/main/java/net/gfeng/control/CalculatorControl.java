@@ -10,7 +10,9 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.Scanner;
 import java.util.concurrent.Callable;
+import java.util.concurrent.CompletionService;
 import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorCompletionService;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
@@ -65,6 +67,8 @@ public class CalculatorControl {
 			}
 		}
 		
+		final CompletionService<LineWordCount> cs = new ExecutorCompletionService<>(POOL);
+		
 		final Collection<LineWordCount> result = new ArrayList<>(end -start + 1);
 		final Collection<Future<LineWordCount>> futures = new ArrayList<>(end -start + 1);
 		
@@ -74,14 +78,14 @@ public class CalculatorControl {
 				String line = scanner.nextLine();
 				
 				if (count >= start) {
-					futures.add(POOL.submit(new CalculateCall(count, line)));
+					futures.add(cs.submit(new CalculateCall(count, line)));
 				}
 				
 				count++;
 			}
 			
-			for (Future<LineWordCount> future : futures) {
-				result.add(future.get());
+			for (int i = 0; i < futures.size(); i++) {
+				result.add(cs.take().get());
 			}
 			
 		} catch (InterruptedException | ExecutionException e) {
@@ -104,6 +108,8 @@ public class CalculatorControl {
 	@RequestMapping(path="calculate", method=RequestMethod.POST)
 	public ResponseEntity<Object> calculateControll1(@RequestBody String text) {
 		
+		final CompletionService<LineWordCount> cs = new ExecutorCompletionService<>(POOL);
+		
 		final Collection<LineWordCount> result = new ArrayList<>();
 		final Collection<Future<LineWordCount>> futures = new ArrayList<>();
 		
@@ -112,14 +118,14 @@ public class CalculatorControl {
 		int count = 1;
 		
 		for (String line : textLine) {
-			futures.add(POOL.submit(new CalculateCall(count, line)));
+			futures.add(cs.submit(new CalculateCall(count, line)));
 
 			count++;
 		}
 		
 		try {
-			for (Future<LineWordCount> future : futures) {
-				result.add(future.get());
+			for (int i = 0; i < futures.size(); i++) {
+				result.add(cs.take().get());
 			}
 			
 		} catch (InterruptedException | ExecutionException e) {

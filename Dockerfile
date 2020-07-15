@@ -12,8 +12,8 @@ COPY ./story.txt /opt/sptemplate/
 
 # ENV JAVA_OPTS=-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=5005
 
-# EXPOSE 8080 5005
-ARG privilege
+EXPOSE 8080 5005
+# ARG privilege
 
 CMD /opt/sptemplate/sptemplate.jar ${MyEnv}
 
