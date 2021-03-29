@@ -83,7 +83,8 @@ sysctl kernel.pid_max
 
 sysctl -w kernel.pid_max=4194303 
 
-
+# Enable Https and Http2
+keytool -genkeypair -keyalg RSA -keysize 2048 -storetype PKCS12 -keystore gftest.p12 -validity 365
 
 
 
