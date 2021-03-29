@@ -86,6 +86,9 @@ sysctl -w kernel.pid_max=4194303
 # Enable Https and Http2
 keytool -genkeypair -keyalg RSA -keysize 2048 -storetype PKCS12 -keystore gftest.p12 -validity 365
 
+# Run Http2 server
+java -Djava.library.path=/usr/lib/x86_64-linux-gnu  -jar ./target/sptemplate.jar 
+
 
 
 
